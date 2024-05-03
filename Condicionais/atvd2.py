@@ -14,8 +14,8 @@ def main():
         notas.append(nota)
 
     media = calcular_media(notas)
-    print(f"{nome} tem {idade} anos, e a média das notas e: 
-      {media:.2f}")
+    
+    print(f"O Aluno {nome} tem {idade} anos, e a média das notas e: {media:.2f}")
     
     if media < 7:
         print("Aluno Reprovado")
