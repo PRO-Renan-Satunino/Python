@@ -27,9 +27,23 @@ class Motoboy(Funcionario): #chama funcionario para dentro de Motoboy, como o Ex
     def salario_final(self) -> float:
         resultado = self.salario * self.BONIFICACAO
         return resultado
+    
+class Engenheiro(Funcionario):
+    BONIFICACAO = 1.2
+
+    def __str__(self, crea:str) -> str:
+        return (
+            f"\nCREA: {self.crea}"
+        )
+
+    def salario_final(self) -> float:
+        resultado = self.salario * self.BONIFICACAO
+        return resultado
 
 
 #instanciando classes
 motoboy1 = Motoboy("Joao", 2000)
+eng1 = Engenheiro("Maicon", 9000)
 
 print(motoboy1)
+print(eng1)
