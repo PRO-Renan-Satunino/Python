@@ -22,4 +22,8 @@ class Funcionario:
     def __str__(self):
         return f"Cod. Funcionario: {self.codigoFuncionario} \nNome: {self.nome} \nTelefone: {self.telefone} \nEmail: {self.email} \n--Conta Bancaria-- {ContaBancaria}"
 
-        
+
+conta1 = ContaBancaria("Itau", "1001", "44444", "Corrente", "45000", "35000")
+func1 = Funcionario("22222", "Joao", "71 98222333", "joao@gmail.com", conta1)
+
+print(func1)
