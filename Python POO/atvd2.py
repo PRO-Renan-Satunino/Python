@@ -48,5 +48,10 @@ class Engenheiro(Funcionario):
         resultado = self.salario * self.BONIFICACAO
         return resultado
 
-    def __init__(self, nome: str, salario: float, telefone: str, email: str) -> None:
+    def __init__(self, nome: str, salario: float, telefone: str, email: str, crea:str) -> None:
         super().__init__(nome, salario, telefone, email)
+        return f"CREA: {self.crea}"
+    
+
+#instanciando
+ende1 = Endereco("Rua das Flores", "23", "Balde de Lixo",)
