@@ -1,29 +1,57 @@
-class ContaBancaria:
-    def __init__ (self, banco:str, agencia:str, numeroConta:str, tipoConta:str, saldo:str, limite:str) -> None:
-        self.banco = banco
-        self.agencia = agencia
-        self.numeroConta = numeroConta
-        self.tipoConta = tipoConta
-        self.saldo = saldo
-        self.limite = limite
+from abc import ABC, abstractclassmethod
+import os
 
-        def __str__ (self):
-            return f"Banco: {self.banco} \nAgencia: {self.agencia} \nNumero da Conta: {self.numeroConta} \nTipo da Conta: {self.tipoConta} \nSaldo: {self.saldo} \nLimite: {self.limite}"
+os.system("cls || clear")
 
-        
-class Funcionario:
-    def __init__(self, codigoFuncionario:str, nome:str, telefone:str, email:str, ContaBancaria) -> None:
-        self.codigoFuncionario = codigoFuncionario
+class Endereco: 
+    def __init__(self, logradouro:str, numero:str, complemento:str, cep:str, cidade:str) -> None:
+        self.logradouro = logradouro
+        self.numero = numero
+        self.complemento = complemento
+        self.cep = cep
+        self.cidade = cidade
+
+    def __str__(self) -> str:
+        return (
+            f"\nLogradouro: {self.logradouro}"
+            f"\nNumero: {self.numero}"
+            f"\nComplemento: {self.complemento}"
+            f"\nCEP: {self.cep}"
+            f"\nCidade: {self.cidade}"
+            )
+    
+class Funcionario(ABC):
+    def __init__(self, nome:str, salario:float, telefone:str, email:str) -> None:
         self.nome = nome
+        self.salario = salario
         self.telefone = telefone
         self.email = email
-        self.ContaBancaria = ContaBancaria
+        endereco = Endereco
+
+    @abstractclassmethod
+    def salario_final(self) -> float:
+        pass
+
+    def __str__(self) -> str:
+        return (
+            f"\nNome: {self.nome}"
+            f"\nSalario: {self.salario}"
+            f"\nTelefone: {self.telefone}"
+            f"\nEmail: {self.email}"
+            f"\nEndereco-- {Endereco}"
+        )
     
-    def __str__(self):
-        return f"Cod. Funcionario: {self.codigoFuncionario} \nNome: {self.nome} \nTelefone: {self.telefone} \nEmail: {self.email} \n--Conta Bancaria-- {ContaBancaria}"
+class Engenheiro(Funcionario):
+    BONIFICACAO = 1.5
 
+    def salario_final(self) -> float:
+        resultado = self.salario * self.BONIFICACAO
+        return resultado
 
-conta1 = ContaBancaria("Itau", "1001", "44444", "Corrente", "45000", "35000")
-func1 = Funcionario("22222", "Joao", "71 98222333", "joao@gmail.com", conta1)
+    def __init__(self, nome: str, salario: float, telefone: str, email: str, crea:str) -> None:
+        super().__init__(nome, salario, telefone, email)
+        return f"CREA: {self.crea}"
+    
 
-print(func1)
+#instanciando
+ende1 = Endereco("Rua das Flores", "23", "Balde de Lixo",)

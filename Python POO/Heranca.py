@@ -1,4 +1,4 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractclassmethod #importador do Abstract
 import os
 
 os.system("cls || clear")
